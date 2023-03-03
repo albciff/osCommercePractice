@@ -1,4 +1,4 @@
-package Screens;
+package org.albciff.oscommerce.screens;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CatalogSearch {
 	
-	public WebDriver driver;
+	private WebDriver driver;
 
 //  No és resilent... el /catalog canvia de forma aleatoria i moltes vegades no apareix l'element samsung.
 //  Podem optar per diferents estrategies, per triar-ne una (podriem anar a saco via url i query parameters) però
@@ -24,8 +24,8 @@ public class CatalogSearch {
  
 	
 	public CatalogSearch (WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
 	}
 	
 	public void findAndSelect(WebDriverWait wait, String elementText) {

@@ -1,4 +1,4 @@
-package Screens;
+package org.albciff.oscommerce.screens;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,23 +14,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DeliveryInformation {
 
-	public WebDriver driver;
+	private WebDriver driver;
 
 	@FindBy(id = "tdb6")
 	private WebElement continueBtn;
 	
- 
-	
 	public DeliveryInformation(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
 	}
 	
 	public void continueToPaymentInformation(WebDriverWait wait) {
-		
 		wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
 		continueBtn.click();
-		
 	}
 	
 }

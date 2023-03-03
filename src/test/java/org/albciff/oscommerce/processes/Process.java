@@ -1,16 +1,15 @@
-package Processes;
+package org.albciff.oscommerce.processes;
 
+import org.albciff.oscommerce.screens.CatalogSearch;
+import org.albciff.oscommerce.screens.DeliveryInformation;
+import org.albciff.oscommerce.screens.OrderConfirmation;
+import org.albciff.oscommerce.screens.OrderProcessed;
+import org.albciff.oscommerce.screens.PaymentInformation;
+import org.albciff.oscommerce.screens.ProductSheet;
+import org.albciff.oscommerce.screens.ShoppingCart;
+import org.albciff.oscommerce.screens.Signin;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import Screens.CatalogSearch;
-import Screens.DeliveryInformation;
-import Screens.OrderConfirmation;
-import Screens.OrderProcessed;
-import Screens.PaymentInformation;
-import Screens.ProductSheet;
-import Screens.ShoppingCart;
-import Screens.Signin;
 
 public abstract class Process {
 	
@@ -28,7 +27,7 @@ public abstract class Process {
 	protected OrderConfirmation orderConfirmation;
 	protected OrderProcessed orderProcessed;
 	
-	public Process(WebDriver driver) {
+	protected Process(WebDriver driver) {
 		processInitialization(driver);
 	}
 

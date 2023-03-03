@@ -1,14 +1,15 @@
-package TestCases;
+package org.albciff.oscommerce.testcases;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
+import org.albciff.oscommerce.processes.PurchaseProcess;
+import org.albciff.oscommerce.screens.PaymentInformation.PaymentMethod;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,9 +18,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 
-import Processes.Process;
-import Processes.PurchaseProcess;
-import Screens.PaymentInformation.PaymentMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -27,9 +25,8 @@ class TestCase1 {
 	
 	private static WebDriver driver;
 	private static ChromeOptions chromeOptions;
-	private Process process; 
 	
-	public static void createAndStartService() throws IOException {
+	public static void createAndStartService() {
 		WebDriverManager.chromedriver().setup();
   		ArrayList<String> optionsList = new ArrayList<String>();
 		chromeOptions = new ChromeOptions();
@@ -50,12 +47,16 @@ class TestCase1 {
 	}
 
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
+	static void setUpBeforeClass() throws IOException {
 		createAndStartService();	
 	}
 
 	@AfterAll
-	static void tearDownAfterClass() throws Exception {}
+	static void tearDownAfterClass() {
+		// aquest mètode és buit pq en aquest moment del test no és 
+		// necessari. Però el mantenim per l'estructura i pq si s'afegeixen
+		// més tests, pot acabar necessari alguna operació de tearDown
+	}
 
 	@BeforeEach
 	void setUp() throws Exception {

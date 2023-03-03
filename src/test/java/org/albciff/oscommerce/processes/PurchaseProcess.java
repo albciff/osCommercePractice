@@ -1,8 +1,7 @@
-package Processes;
+package org.albciff.oscommerce.processes;
 
+import org.albciff.oscommerce.screens.PaymentInformation.PaymentMethod;
 import org.openqa.selenium.WebDriver;
-
-import Screens.PaymentInformation.PaymentMethod;
 
 public class PurchaseProcess extends Process {
 

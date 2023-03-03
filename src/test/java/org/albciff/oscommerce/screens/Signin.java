@@ -1,4 +1,4 @@
-package Screens;
+package org.albciff.oscommerce.screens;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class Signin {
 
-	public WebDriver driver;
+	private WebDriver driver;
 
 	@FindBy(name = "email_address")
 	private WebElement emailAdressInput;
@@ -27,8 +27,8 @@ public class Signin {
 	
 	
 	public Signin(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
 	}
 	
 	public void signin(WebDriverWait wait) {

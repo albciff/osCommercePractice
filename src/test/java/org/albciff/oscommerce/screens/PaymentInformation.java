@@ -1,4 +1,4 @@
-package Screens;
+package org.albciff.oscommerce.screens;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class PaymentInformation {
 		cod,paypal_express		
 	}
 	
-	public WebDriver driver;
+	private WebDriver driver;
 
 	@FindBy(id = "tdb6")
 	private WebElement continueBtn;
@@ -31,8 +31,8 @@ public class PaymentInformation {
  
 	
 	public PaymentInformation(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
 	}
 	
 	public void selectPaymentMethodAndContinue(WebDriverWait wait, PaymentMethod paymentMethod) {

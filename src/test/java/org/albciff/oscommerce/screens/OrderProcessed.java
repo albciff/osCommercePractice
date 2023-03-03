@@ -1,4 +1,4 @@
-package Screens;
+package org.albciff.oscommerce.screens;
 
 import static org.junit.Assert.assertTrue;
 
@@ -16,17 +16,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class OrderProcessed {
 	
-	public WebDriver driver;
+	private WebDriver driver;
 
 	@FindBy(id = "bodyContent")
 	private WebElement orderProcessedElement;
 	
 	private String orderProcessedText = "Your Order Has Been Processed!";
 	
- 
 	public OrderProcessed(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
 	}
 	
 	public void checkOrderIsProcessed(WebDriverWait wait) {

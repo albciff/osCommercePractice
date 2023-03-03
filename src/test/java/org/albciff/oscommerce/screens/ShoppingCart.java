@@ -1,4 +1,4 @@
-package Screens;
+package org.albciff.oscommerce.screens;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class ShoppingCart {
 
-	public WebDriver driver;
+	private WebDriver driver;
 
 	@FindBy(name = "cart_quantity[]")
 	private WebElement quantityInput;
@@ -25,15 +25,12 @@ public class ShoppingCart {
 	@FindBy(id = "tdb5")
 	private WebElement checkoutBtn;
 	
- 
-	
 	public ShoppingCart(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
 	}
 	
 	public void purchaseSpecificQuantity(WebDriverWait wait, int quantity) {
-		
 		wait.until(ExpectedConditions.elementToBeClickable(updateQuantityBtn));
 
 		// netejem l'input i insertem la quantitat
@@ -44,7 +41,6 @@ public class ShoppingCart {
 		updateQuantityBtn.click();
 		wait.until(ExpectedConditions.elementToBeClickable(checkoutBtn));
 		checkoutBtn.click();
-		
 	}
 	
 }
