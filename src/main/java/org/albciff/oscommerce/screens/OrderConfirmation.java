@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class OrderConfirmation {
 	
-	public WebDriver driver;
+	private WebDriver driver;
 
 	@FindBy(id = "tdb5")
 	private WebElement confirmOrderBtn;

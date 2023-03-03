@@ -1,6 +1,5 @@
 package org.albciff.oscommerce.testcases;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
@@ -47,7 +46,7 @@ class TestCase1 {
 	}
 
 	@BeforeAll
-	static void setUpBeforeClass() throws IOException {
+	static void setUpBeforeClass() {
 		createAndStartService();	
 	}
 
@@ -59,14 +58,14 @@ class TestCase1 {
 	}
 
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp() {
 		createDriver();
 		driver.manage().window().maximize();
 		
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	void tearDown() {
 		quitDriver();
 	}
 

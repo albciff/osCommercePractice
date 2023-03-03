@@ -21,14 +21,14 @@ public class PaymentInformation {
 
 	public enum PaymentMethod {
         CASH("cod"), PAYPAL("paypal_express");
-        private String paymentMethod;
-        private PaymentMethod(String paymentMethod) {
-            this.paymentMethod = paymentMethod;
+        private String paymentMethodText;
+        private PaymentMethod(String paymentMethodText) {
+            this.paymentMethodText = paymentMethodText;
         }
        
         @Override
         public String toString(){
-            return paymentMethod;
+            return paymentMethodText;
         }		
 	}
 	
