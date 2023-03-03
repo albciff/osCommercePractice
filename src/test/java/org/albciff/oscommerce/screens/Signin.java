@@ -31,13 +31,13 @@ public class Signin {
 		PageFactory.initElements(this.driver, this);
 	}
 	
-	public void signin(WebDriverWait wait) {
+	public void signin(WebDriverWait wait, String userEmail, String userPwd) {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(signinBtn));
 
 		// omplim les credencials i fem login
-		emailAdressInput.sendKeys("albert.ciffone@gmail.com");
-		passwordInput.sendKeys("albert_oscommerce");
+		emailAdressInput.sendKeys(userEmail);
+		passwordInput.sendKeys(userPwd);
 		signinBtn.click();
 		
 	}

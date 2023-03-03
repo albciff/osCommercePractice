@@ -34,8 +34,6 @@ public class OrderProcessed {
 		wait.until(ExpectedConditions.textToBePresentInElement(orderProcessedElement,orderProcessedText));
 		// anyway fem assert explicit :)
 		assertTrue(orderProcessedElement.getText().contains(orderProcessedText));
-		
-		System.out.println("SALUT I REPUBLICA");
 	
 	}
 	

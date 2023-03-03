@@ -1,6 +1,9 @@
 package org.albciff.oscommerce.screens;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
+import java.util.Optional;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +20,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PaymentInformation {
 
 	public enum PaymentMethod {
-		cod,paypal_express		
+        CASH("cod"), PAYPAL("paypal_express");
+        private String paymentMethod;
+        private PaymentMethod(String paymentMethod) {
+            this.paymentMethod = paymentMethod;
+        }
+       
+        @Override
+        public String toString(){
+            return paymentMethod;
+        }		
 	}
 	
 	private WebDriver driver;
@@ -28,8 +40,6 @@ public class PaymentInformation {
 	@FindBy(name = "payment")
 	private List<WebElement> paymentMethodsRadioBtn;
 	
- 
-	
 	public PaymentInformation(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
@@ -39,15 +49,18 @@ public class PaymentInformation {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
 		
-		WebElement paymentMethodSelected= paymentMethodsRadioBtn.stream()
-											.filter(it -> it.getAttribute("value").equals(paymentMethod.toString()))
-											.findFirst()
-											.get();
+		Optional<WebElement> paymentMethodSelected = paymentMethodsRadioBtn.stream()
+			.filter(it -> it.getAttribute("value").equals(paymentMethod.toString()))
+			.findFirst();
 		
-		paymentMethodSelected.click();
-		
-		continueBtn.click();
-		
+		if(paymentMethodSelected.isPresent()) {
+			paymentMethodSelected.get().click();
+			continueBtn.click();
+		} else {
+			// si arribem aqui, hem fracasat, fem doncs fallar el test
+			assertTrue(false);	
+		}
+
 	}
 	
 }

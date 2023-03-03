@@ -9,13 +9,17 @@ public class PurchaseProcess extends Process {
 	private String product;
 	private int quantity;
 	private PaymentMethod paymentMethod;
+	private String userEmail;
+	private String userPwd;
 	
-	public PurchaseProcess(WebDriver driver, String url, String product, int quantity, PaymentMethod paymentMethod) {
+	public PurchaseProcess(WebDriver driver, String url, String product, int quantity, PaymentMethod paymentMethod, String userEmail, String userPwd) {
 		super(driver);
 		this.url = url;
 		this.product = product;
 		this.quantity = quantity;
 		this.paymentMethod = paymentMethod;
+		this.userEmail = userEmail;
+		this.userPwd = userPwd;
 		
 	}
 		
@@ -35,8 +39,8 @@ public class PurchaseProcess extends Process {
 		shoppingCart.purchaseSpecificQuantity(wait, quantity);
 	}
 	
-	private void signin() {
-		signinPage.signin(wait);
+	private void signin(String userEmail, String userPwd) {
+		signinPage.signin(wait, userEmail, userPwd);
 	}
 	
 	private void deliveryInformation() {
@@ -62,7 +66,7 @@ public class PurchaseProcess extends Process {
 		selectProduct(product);
 		addProductToCard();
 		pruchaseProduct(quantity);
-		signin();
+		signin(userEmail, userPwd);
 		deliveryInformation();
 		paymentByMethod(paymentMethod); // passar com a variable del purchase ?? 
 		confirmOrder();

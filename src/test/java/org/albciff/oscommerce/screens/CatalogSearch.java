@@ -29,7 +29,6 @@ public class CatalogSearch {
 	}
 	
 	public void findAndSelect(WebDriverWait wait, String elementText) {
-		
 		wait.until(ExpectedConditions.elementToBeClickable(finder));
 		finder.clear();
 		finder.sendKeys(elementText);

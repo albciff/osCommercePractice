@@ -28,7 +28,7 @@ class TestCase1 {
 	
 	public static void createAndStartService() {
 		WebDriverManager.chromedriver().setup();
-  		ArrayList<String> optionsList = new ArrayList<String>();
+  		ArrayList<String> optionsList = new ArrayList<>();
 		chromeOptions = new ChromeOptions();
 		optionsList.add("--start-maximized");
 		optionsList.add("--incognito");
@@ -70,20 +70,19 @@ class TestCase1 {
 		quitDriver();
 	}
 
-	
     public static Stream<Object> dataSetForPuchaseTest() {      
         return Stream.of(
         		// Test samsung galaxy tab
-        		Arguments.of("http://sqademosatp.net/catalog/", "Samsung Galaxy Tab",2, PaymentMethod.cod ),
+        		Arguments.of("http://sqademosatp.net/catalog/", "Samsung Galaxy Tab", 2, PaymentMethod.CASH, "albert.ciffone@gmail.com", "albert_oscommerce"),
         		// Test Beloved
-        		Arguments.of("http://sqademosatp.net/catalog/", "Beloved",3, PaymentMethod.cod )		
+        		Arguments.of("http://sqademosatp.net/catalog/", "Beloved",3, PaymentMethod.CASH, "albert.ciffone@gmail.com", "albert_oscommerce")		
         );
     }
 	
 	@ParameterizedTest
 	@MethodSource(value = "dataSetForPuchaseTest")
-	void purchaseTests(String url, String product, int quantity, PaymentMethod paymentMethod) {
-		PurchaseProcess purchaseProcess = new PurchaseProcess(driver, url, product, quantity, paymentMethod);
+	void purchaseTests(String url, String product, int quantity, PaymentMethod paymentMethod, String userEmail, String userPwd) {
+		PurchaseProcess purchaseProcess = new PurchaseProcess(driver, url, product, quantity, paymentMethod, userEmail, userPwd);
 		purchaseProcess.executeProcess();
 	}
 }
