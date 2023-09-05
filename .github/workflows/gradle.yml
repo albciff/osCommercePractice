@@ -36,5 +36,3 @@ jobs:
         dependency-graph: generate-and-submit
     - name: Build with Gradle
       uses: run: ./gradlew build -x test
-      with:
-        arguments: build
