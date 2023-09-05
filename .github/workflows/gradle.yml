@@ -36,4 +36,4 @@ jobs:
         gradle-version: current
         cache-disabled: true
         dependency-graph: generate
-    - run: ./gradlew build -x test --no-configuration-cache --no-build-cache
+    - run: ./gradlew build -x test #--no-configuration-cache --no-build-cache
