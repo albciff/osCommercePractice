@@ -31,9 +31,9 @@ jobs:
     - name: Run chmod to make gradlew executable
       run: chmod +x ./gradlew
     - name: Setup Gradle to generate and submit dependency graphs
-      uses: gradle/gradle-build-action@v2.8.0
+      uses: gradle/gradle-build-action@v2 #.8.0
       with:
-        gradle-version: current
-        cache-disabled: true
+        gradle-version: 8.2.1
+        #cache-disabled: true
         dependency-graph: generate
-    - run: ./gradlew build -x test #--no-configuration-cache --no-build-cache
+    - run: ./gradlew build #--no-configuration-cache --no-build-cache
