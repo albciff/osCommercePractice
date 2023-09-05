@@ -35,4 +35,4 @@ jobs:
       with:
         dependency-graph: generate-and-submit
     - name: Build with Gradle
-      run: ./gradlew build -x test
+      run: ./gradlew build -x test --no-configuration-cache --no-build-cache
