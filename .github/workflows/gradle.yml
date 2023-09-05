@@ -35,5 +35,5 @@ jobs:
       with:
         cache-disabled: true
         dependency-graph: generate-and-submit
-        gradle-version: 7.5.2
+#        gradle-version: 7.5.2
     - run: ./gradlew build -x test --no-configuration-cache --no-build-cache
