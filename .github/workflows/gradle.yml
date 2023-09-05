@@ -33,7 +33,7 @@ jobs:
     - name: Setup Gradle to generate and submit dependency graphs
       uses: gradle/gradle-build-action@v2.8.0
       with:
+        gradle-version: current
         cache-disabled: true
         dependency-graph: generate
-#        gradle-version: 7.5.2
-    - run: ./gradlew build -x test --no-configuration-cache --no-build-cache
+    - run: ./gradlew build #--no-configuration-cache --no-build-cache
