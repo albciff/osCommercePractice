@@ -72,9 +72,9 @@ class TestCase1 {
     public static Stream<Object> dataSetForPuchaseTest() {      
         return Stream.of(
         		// Test samsung galaxy tab
-        		Arguments.of("http://sqademosatp.net/catalog/", "Samsung Galaxy Tab", 2, PaymentMethod.CASH, "albert.ciffone@gmail.com", "albert_oscommerce"),
+        		Arguments.of("http://sqademosatp.net/catalog/", "Samsung Galaxy Tab", 2, PaymentMethod.CASH, "oscommerce@gmail.com", "oscommerce"),
         		// Test Beloved
-        		Arguments.of("http://sqademosatp.net/catalog/", "Beloved",3, PaymentMethod.CASH, "albert.ciffone@gmail.com", "albert_oscommerce")		
+        		Arguments.of("http://sqademosatp.net/catalog/", "Beloved",3, PaymentMethod.CASH, "oscommercee@gmail.com", "oscommerce")		
         );
     }
 	
